@@ -4,6 +4,8 @@ import { SettingsProvider, ThemeSettings } from './components/settings'
 import ScrollToTop from './components/scroll-to-top/ScrollToTop'
 import Router from './routes';
 import ThemeProvider from './theme';
+import { MotionLazyContainer } from './components/animate';
+import { SnackbarProvider } from './components/snackbar';
 
 function App() {
 
@@ -12,12 +14,16 @@ function App() {
       <HelmetProvider>
         <SettingsProvider>
           <BrowserRouter>
-            <ThemeProvider>
-              <ThemeSettings>
-                <ScrollToTop />
-                <Router />
-              </ThemeSettings>
-            </ThemeProvider>
+            <ScrollToTop />
+            <MotionLazyContainer>
+              <ThemeProvider>
+                <ThemeSettings>
+                  <SnackbarProvider>
+                    <Router />
+                  </SnackbarProvider>
+                </ThemeSettings>
+              </ThemeProvider>
+            </MotionLazyContainer>
           </BrowserRouter>
         </SettingsProvider>
       </HelmetProvider>
