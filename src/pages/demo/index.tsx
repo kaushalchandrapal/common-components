@@ -1,8 +1,27 @@
+import { useTheme } from '@mui/material/styles';
+import { Box, TextField, Typography } from "@mui/material";
+import { Helmet } from "react-helmet-async";
 
 const Demo = () => {
+  const theme = useTheme();
   return (
-    <h1>Start a
-    new project with</h1>
+    <>
+      <Helmet>
+        <title>Demo</title>
+      </Helmet>
+      <Typography variant='h1' color={theme.palette.primary.main}>Demo</Typography>
+      <Box>
+        <TextField
+          placeholder="Name"
+          label="Name"
+          variant="filled"
+        />
+        <TextField
+          placeholder="Name"
+          label="Name"
+        />
+      </Box>
+    </>
   )
 }
 
